@@ -1,10 +1,12 @@
 var ui = {
-	startWidth: 0,
-	endWidth: 0,
+	width: 0,
 	height: 0,
-	setWidthHeight(start, end, height) {
-		this.startWidth = start + 1;
-		this.endWidth = end;
+	setWidthHeight(width, height) {
+		this.width = width - 5;
 		this.height = height;
+	},
+	changeMenu() {
+		menu.style.width = this.width + "px";
+		menu.style.height = this.height + "px";
 	}
 }
