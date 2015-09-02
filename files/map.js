@@ -1,18 +1,18 @@
 map = {
-	len1: 10,
-	len2: 10,
+	lenX: 10,
+	lenY: 10,
 	world: [],
 	getWorld() {
 		return this.world;
 	},
 	makeMap() {
-		var len1 = this.len1,
-			len2 = this.len2,
+		var lenX = this.lenX,
+			lenY = this.lenY,
 			world = this.world;
 
-		for (var i = 0; i < len1; i++) {
+		for (var i = 0; i < lenX; i++) {
 			world.push([]);
-			for (var j = 0; j< len2; j++) {
+			for (var j = 0; j< lenY; j++) {
 				world[i].push("e");
 			}
 		}
