@@ -10,6 +10,7 @@ var screen = {
 		this.yCenter = h/2;
 	},
 	click(e) {
+		// an even
 		var that = screen;
 
 		if (that.showMenu == false) {
@@ -34,5 +35,7 @@ var screen = {
 		ctx.textAlign = 'center';
 		ctx.fillText("Hello", this.xCenter, this.yCenter - 50);
 		ctx.restore();
+
+		map.makeMap();
 	}
 }
