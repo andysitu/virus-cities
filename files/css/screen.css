@@ -1,5 +1,4 @@
 #container {
-	text-align: center;
 }
 
 #menu {
@@ -10,20 +9,20 @@
 	border-left-width: 0;
 	word-wrap: break-word;
 	white-space: pre-wrap;
-	position: auto auto;
-	text-align: left;
+}
+
+canvas { position: absolute; }
+
+#canvases {
+	display: inline-block;
+	position: relative;
+	border: 1px solid;
 }
 
 #game-canvas {
-	border: 1px solid;
 	z-index: 1;
 }
 
 #ui-canvas {
 	z-index: 2;
-}
-
-#canvases {
-	position: relative;
-	display: inline-block;
 }

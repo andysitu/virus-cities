@@ -26,6 +26,7 @@ window.addEventListener("load", function(e) {
 
 	canvas = document.getElementById("game-canvas");
 	uiCanvas = document.getElementById("ui-canvas");
+	canvas_container = document.getElementById("canvases");
 
 	display.setWidthHeight(cwidth, height);
 	ui.setWidthHeight( width - cwidth - 40, height);
@@ -33,7 +34,8 @@ window.addEventListener("load", function(e) {
 	uiCanvas.width = cwidth;
 	canvas.height = height;
 	uiCanvas.height = height;
-	canvas.id = "canvas";
+	canvas_container.style.width = cwidth + "px";
+	canvas_container.style.height = height + "px";
 
 	ui.changeMenu();
 
