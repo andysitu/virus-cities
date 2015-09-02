@@ -48,7 +48,8 @@ var display = {
 			y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
 
 		if (hl[0] != x || hl[1] != y) {
-			display.highlighted = [x,y];
+			that.highlighted = [x,y];
+			that.readMap();
 		}	
 	},
 
@@ -113,6 +114,12 @@ var display = {
 				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);
 			}
 		}
+		var hl = this.highlighted;
+		ctx.fillStyle = "red";
+		ctx.fillRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
+		ctx.fillStyle = "black";
+		ctx.strokeRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
+
 		ctx.restore();
 	}
 }
