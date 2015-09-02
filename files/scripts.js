@@ -2,6 +2,7 @@
 var canvas,
 	uiCanvas,
 	ctx,
+	uictx,
 	menu,
 	status_display;
 
@@ -45,7 +46,8 @@ window.addEventListener("load", function(e) {
 	menus.style.height = height + "px";
 
 	ctx = canvas.getContext('2d');
-	ctx.font = '20pt Calibri';
+	uictx = uiCanvas.getContext('2d');
+	uictx.font = ctx.font = '20pt Calibri';
 
 	// canvas click event listener
 	uiCanvas.addEventListener('click', display.click, false);

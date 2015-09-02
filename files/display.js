@@ -43,17 +43,26 @@ var display = {
 	},
 	highlighted: [0,0],
 	highlight(e) {
-		var that = display,
-			hl = display.highlighted,
-			blockSize = that.blockSize,
-			world = map.world;
+		var that = display;
+		if (that.showMenu == false) {
+			var that = display,
+				hl = display.highlighted,
+				blockSize = that.blockSize,
+				world = map.world;
 
-		var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
-			y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
+			var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
+				y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
 
-		if (hl[0] != x || hl[1] != y) {
-			that.highlighted = [x,y];
-			that.readMap();
+			if (hl[0] != x || hl[1] != y) {
+				that.highlighted = [x,y];
+				var hl = that.highlighted;
+
+				uictx.clearRect(0,0, this.width, this.height);
+				uictx.fillStyle = "red";
+				uictx.fillRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
+				uictx.fillStyle = "black";
+				uictx.strokeRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
+			}
 		}	
 	},
 
@@ -112,12 +121,6 @@ var display = {
 				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);
 			}
 		}
-		var hl = this.highlighted;
-		ctx.fillStyle = "red";
-		ctx.fillRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
-		ctx.fillStyle = "black";
-		ctx.strokeRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
-
 		ctx.restore();
 	}
 }
