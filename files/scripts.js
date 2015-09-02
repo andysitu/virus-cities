@@ -2,7 +2,8 @@
 var canvas,
 	uiCanvas,
 	ctx,
-	menu;
+	menu,
+	status_display;
 
 window.addEventListener("load", function(e) {
 	// Make canvas, set display.width & height with display.setWidthHeight,
@@ -11,7 +12,8 @@ window.addEventListener("load", function(e) {
 		height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
 		canvas_widthratio = 4/5,
 		ui_widthratio = 1/5,
-		blockSize = display.blockSize;
+		blockSize = display.blockSize,
+		statusHeight = 100;
 
 	height *= 0.95;
 
@@ -27,17 +29,20 @@ window.addEventListener("load", function(e) {
 	canvas = document.getElementById("game-canvas");
 	uiCanvas = document.getElementById("ui-canvas");
 	canvas_container = document.getElementById("canvases");
+	status_display = document.getElementById("status_display")
 
 	display.setWidthHeight(cwidth, height);
-	ui.setWidthHeight( width - cwidth - 40, height);
+	ui.setWidthHeight( width - cwidth - 40, height - statusHeight);
+	pstatus	.setWidthHeight( width - cwidth - 40, statusHeight);
 	canvas.width = cwidth;
-	uiCanvas.width = cwidth;
 	canvas.height = height;
+	uiCanvas.width = cwidth;
 	uiCanvas.height = height;
 	canvas_container.style.width = cwidth + "px";
 	canvas_container.style.height = height + "px";
 
 	ui.changeMenu();
+	pstatus.changeMenu();
 
 	ctx = canvas.getContext('2d');
 	ctx.font = '20pt Calibri';
