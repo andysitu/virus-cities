@@ -34,4 +34,6 @@ window.addEventListener("load", function(e) {
 
 	// canvas click event listener
 	canvas.addEventListener('click', screen.click, false);
+
+	screen.displayStartMenu();
 });

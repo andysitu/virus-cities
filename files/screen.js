@@ -12,5 +12,11 @@ var screen = {
 	click(e) {
 		console.log(e.clientX);
 	},
+	showMenu: false,
+	displayStartMenu() {
+		ctx.save();
+		ctx.clearRect(0,0, this.width, this.height);
+		ctx.textAlign = 'center';
+		ctx.fillText("Hello", this.xCenter, this.yCenter - 50);
 	}
 }
