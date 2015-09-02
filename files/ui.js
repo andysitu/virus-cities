@@ -11,5 +11,14 @@ var ui = {
 	},
 	display(str) {
 		menu.textContent = str;
+	},
+	displayInfo(obj) {
+		var str = "";
+
+		for (var key in obj) {
+			str += " " + key + ": " + obj[key] + "\n";
+		}
+
+		this.display(str);
 	}
 }

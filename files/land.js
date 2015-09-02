@@ -32,3 +32,14 @@ Land.prototype.infect = function(virusAmount) {
 
 	this.changeAmounts(fert, live, res);
 };
+
+Land.prototype.click = function() {
+	return {
+		id: this.id,
+		fertility: this.fertility,
+		livestock: this.livestock,
+		resistance: this.resistance,
+		x: this.x,
+		y: this.y
+	};
+};
