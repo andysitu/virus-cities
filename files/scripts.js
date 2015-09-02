@@ -20,26 +20,33 @@ window.addEventListener("load", function(e) {
 	// width & height blocks are the blocks across the canvas shown
 	var heightBlocks = Math.floor(height / blockSize),
 		widthBlocks = Math.floor(width * canvas_widthratio / blockSize);
+
 	height = heightBlocks * blockSize;
 	cwidth = widthBlocks * blockSize;
 	display.setMaxBlocks([widthBlocks, heightBlocks]);
+
+	var menuWidth = width - cwidth - 40;
 
 	menu = document.getElementById("menu");
 
 	canvas = document.getElementById("game-canvas");
 	uiCanvas = document.getElementById("ui-canvas");
 	canvas_container = document.getElementById("canvases");
-	status_display = document.getElementById("status_display")
+	status_display = document.getElementById("status_display");
+
+	var menus = document.getElementById("menus");
 
 	display.setWidthHeight(cwidth, height);
-	ui.setWidthHeight( width - cwidth - 40, height - statusHeight);
-	pstatus	.setWidthHeight( width - cwidth - 40, statusHeight);
+	ui.setWidthHeight( menuWidth, height - statusHeight);
+	pstatus	.setWidthHeight( menuWidth, statusHeight);
 	canvas.width = cwidth;
 	canvas.height = height;
 	uiCanvas.width = cwidth;
 	uiCanvas.height = height;
 	canvas_container.style.width = cwidth + "px";
 	canvas_container.style.height = height + "px";
+	menus.style.width = menuWidth + "px";
+	menus.style.height = height + "px";
 
 	ui.changeMenu();
 	pstatus.changeMenu();
