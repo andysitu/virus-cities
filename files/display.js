@@ -11,7 +11,7 @@ var display = {
 	getMaxBlocks() {
 		return this.maxBlocks;
 	},
-	_blockSize: 20,
+	_blockSize: 25,
 	get blockSize() {
 		return this._blockSize;
 	},
@@ -80,7 +80,7 @@ var display = {
 		map.makeMap();
 		this.readMap();
 	},
-	readMap(startX, startY, stopX, stopY) {
+	readMap(startX, startY) {
 	// reads from map.world & displays it on canvas. If startX, etc
 	// are undefined, then these values will just show the entirety
 	// of the map.
@@ -88,21 +88,15 @@ var display = {
 			width = this.width,
 			height = this.height,
 			world = map.getWorld(),
-			len1 = world.length,
-			len2 = world[0].length;
+			max= this.maxBlocks;
 
 		if (startX === undefined) {
 			startX = 0;
 			startY = 0;
-			stopX = len1;
-			stopY = len2;
 		}
-		if (stopX * blockSize > width) {
-			stopX = Math.floor( width / blockSize);
-		}
-		if (stopY * blockSize > height) {
-			stopY = Math.floor( height / blockSize);
-		}
+
+		var stopX = startX + max[0],
+			stopY = startY + max[1];
 
 		ctx.save();
 		ctx.clearRect(0,0, this.width, this.height);
