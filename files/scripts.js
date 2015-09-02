@@ -1,5 +1,6 @@
 // Page is for onload function for window
 var canvas,
+	uiCanvas,
 	ctx,
 	menu;
 
@@ -23,14 +24,15 @@ window.addEventListener("load", function(e) {
 
 	menu = document.getElementById("menu");
 
-	canvas = document.createElement("canvas");
-	var container = document.getElementById("container");
-	container.insertBefore(canvas, menu);
+	canvas = document.getElementById("game-canvas");
+	uiCanvas = document.getElementById("ui-canvas");
 
 	display.setWidthHeight(cwidth, height);
 	ui.setWidthHeight( width - cwidth - 40, height);
 	canvas.width = cwidth;
+	uiCanvas.width = cwidth;
 	canvas.height = height;
+	uiCanvas.height = height;
 	canvas.id = "canvas";
 
 	ui.changeMenu();
