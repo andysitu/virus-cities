@@ -7,6 +7,7 @@
 	display: inline-block;
 	background: white;
 	border: 1px solid;
+	border-left-width: 0;
 	word-wrap: break-word;
 	position: auto auto;
 	text-align: left;

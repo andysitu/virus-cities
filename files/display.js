@@ -86,7 +86,7 @@ var display = {
 		ctx.clearRect(0,0, this.width, this.height);
 		for (var i = 0; i < stopX; i++) {
 			for (var j = 0; j < stopY; j++) {
-				ctx.fillStyle = "red";
+				ctx.fillStyle = "rgba(0,204,0,0.5)";
 				ctx.fillRect(i * blockSize, j * blockSize, blockSize, blockSize);
 				ctx.fillStyle = "black";
 				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);

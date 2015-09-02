@@ -18,7 +18,7 @@ Land.prototype.changeAmounts = function(fert,live,res) {
 	if (this.resistance < 1) {
 		this.resistance = 1;
 	}
-}
+};
 
 Land.prototype.infect = function(virusAmount) {
 	var log = Math.log(VirusAmount),
@@ -31,4 +31,4 @@ Land.prototype.infect = function(virusAmount) {
 		res = log * 0.01;
 
 	this.changeAmounts(fert, live, res);
-}
+};
