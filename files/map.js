@@ -32,7 +32,8 @@ map = {
 		for (var i = 0; i < lenX; i++) {
 			world.push([]);
 			for (var j = 0; j< lenY; j++) {
-				world[i].push("e");
+				var land = new Land(i,j);
+				world[i].push(land);
 			}
 		}
 	},
