@@ -4,10 +4,8 @@ var ui = {
 	setWidthHeight(width, height) {
 		this.width = width;
 		this.height = height;
-	},
-	changeMenu() {
-		menu.style.width = this.width + "px";
-		menu.style.height = this.height + "px";
+		menu.style.width = width + "px";
+		menu.style.height = height + "px";
 	},
 	display(str) {
 		menu.textContent = str;

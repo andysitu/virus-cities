@@ -39,17 +39,10 @@ window.addEventListener("load", function(e) {
 	display.setWidthHeight(cwidth, height);
 	ui.setWidthHeight( menuWidth, height - statusHeight);
 	pstatus	.setWidthHeight( menuWidth, statusHeight);
-	canvas.width = cwidth;
-	canvas.height = height;
-	uiCanvas.width = cwidth;
-	uiCanvas.height = height;
 	canvas_container.style.width = cwidth + "px";
 	canvas_container.style.height = height + "px";
 	menus.style.width = menuWidth + "px";
 	menus.style.height = height + "px";
-
-	ui.changeMenu();
-	pstatus.changeMenu();
 
 	ctx = canvas.getContext('2d');
 	ctx.font = '20pt Calibri';

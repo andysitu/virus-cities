@@ -4,9 +4,7 @@ pstatus = {
 	setWidthHeight(width, height) {
 		this.width = width;
 		this.height = height;
-	},
-	changeMenu() {
-		status_display.style.width = this.width + "px";
-		status_display.style.height = this.height + "px";
-	},
+		status_display.style.width = width + "px";
+		status_display.style.height = height + "px";
+	}
 }

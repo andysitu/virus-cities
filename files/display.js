@@ -20,6 +20,10 @@ var display = {
 		this.height = h;
 		this.xCenter = w/2;
 		this.yCenter = h/2;
+		canvas.width = w;
+		canvas.height = h;
+		uiCanvas.width = w;
+		uiCanvas.height = h;
 	},
 	click(e) {
 		var that = display,
