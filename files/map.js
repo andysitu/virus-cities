@@ -1,16 +1,19 @@
 map = {
 	len1: 10,
 	len2: 10,
-	map: [],
+	world: [],
+	getWorld() {
+		return this.world;
+	},
 	makeMap() {
 		var len1 = this.len1,
 			len2 = this.len2,
-			map = this.map;
+			world = this.world;
 
 		for (var i = 0; i < len1; i++) {
-			map.push([]);
+			world.push([]);
 			for (var j = 0; j< len2; j++) {
-				map[i].push("e");
+				world[i].push("e");
 			}
 		}
 	},
