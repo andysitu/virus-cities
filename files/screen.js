@@ -9,5 +9,8 @@ var screen = {
 		this.xCenter = w/2;
 		this.yCenter = h/2;
 	},
+	click(e) {
+		console.log(e.clientX);
+	},
 	}
 }

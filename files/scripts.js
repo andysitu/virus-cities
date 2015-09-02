@@ -30,4 +30,8 @@ window.addEventListener("load", function(e) {
 	ui.changeMenu();
 
 	ctx = canvas.getContext('2d');
+	ctx.font = '20pt Calibri';
+
+	// canvas click event listener
+	canvas.addEventListener('click', screen.click, false);
 });
