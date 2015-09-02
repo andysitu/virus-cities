@@ -44,6 +44,7 @@ window.addEventListener("load", function(e) {
 	canvas_container.style.height = height + "px";
 	menus.style.width = menuWidth + "px";
 	menus.style.height = height + "px";
+	display.setOffset(canvas_container.offsetLeft, canvas_container.offsetTop);
 
 	ctx = canvas.getContext('2d');
 	uictx = uiCanvas.getContext('2d');

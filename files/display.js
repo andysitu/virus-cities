@@ -4,6 +4,12 @@ var display = {
 	xCenter: 0,
 	yCenter: 0,
 	maxBlocks: [0,0],
+	offsetLeft: 0,
+	offsetTop: 0,
+	setOffset(x, y) {
+		this.offsetLeft = x;
+		this.offsetTop = y;
+	},
 	setMaxBlocks(arr) {
 	// [0] is for width, [1] for height
 		this.maxBlocks = arr;
@@ -31,8 +37,8 @@ var display = {
 			world = map.world;
 
 		if (that.showMenu == false) {
-			var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
-				y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
+			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
+				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
 
 			var obj = world[x][y].click();
 			ui.displayInfo(obj);
@@ -50,9 +56,8 @@ var display = {
 				blockSize = that.blockSize,
 				world = map.world;
 
-			var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
-				y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
-
+			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
+				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
 			if (hl[0] != x || hl[1] != y) {
 				that.highlighted = [x,y];
 				var hl = that.highlighted;
