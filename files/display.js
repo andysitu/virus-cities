@@ -3,6 +3,10 @@ var display = {
 	height: 0,
 	xCenter: 0,
 	yCenter: 0,
+	_blockSize: 20,
+	get blockSize() {
+		return this._blockSize;
+	},
 	setWidthHeight(w, h) {
 		this.width = w;
 		this.height = h;
