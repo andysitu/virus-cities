@@ -8,6 +8,9 @@ var display = {
 	// [0] is for width, [1] for height
 		this.maxBlocks = arr;
 	},
+	getMaxBlocks() {
+		return this.maxBlocks;
+	},
 	_blockSize: 20,
 	get blockSize() {
 		return this._blockSize;
