@@ -3,6 +3,11 @@
 
 #menus {
 	display: inline-block;
+	vertical-align:top;
+}
+
+#status_display {
+	vertical-align:top;
 }
 
 #menu {
