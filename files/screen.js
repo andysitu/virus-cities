@@ -3,6 +3,7 @@ var screen = {
 	height: 0,
 	xCenter: 0,
 	yCenter: 0,
+	blockSize: 20,
 	setWidthHeight(w, h) {
 		this.width = w;
 		this.height = h;
@@ -37,5 +38,37 @@ var screen = {
 		ctx.restore();
 
 		map.makeMap();
+		this.readMap();
+	},
+	readMap(startX, startY, stopX, stopY) {
+		var blockSize = this.blockSize,
+			width = this.width,
+			height = this.height,
+			world = map.getWorld(),
+			len1 = world.length,
+			len2 = world[0].length;
+
+		if (startX === undefined) {
+			startX = 0;
+			startY = 0;
+			stopX = len1;
+			stopY = len2;
+		}
+		if (stopX * blockSize > width) {
+			stopX = Math.floor( width / blockSize);
+		}
+		if (stopY * blockSize > height) {
+			stopY = Math.floor( height / blockSize);
+		}
+
+		ctx.save();
+		ctx.clearRect(0,0, this.width, this.height);
+		for (var i = 0; i < stopX; i++) {
+			for (var j = 0; j < stopY; j++) {
+				ctx.fillStyle = "red";
+				ctx.fillRect(i * blockSize, j * blockSize, blockSize, blockSize);
+			}
+		}
+		ctx.restore();
 	}
 }
