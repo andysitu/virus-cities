@@ -55,8 +55,8 @@ window.addEventListener("load", function(e) {
 	ctx.font = '20pt Calibri';
 
 	// canvas click event listener
-	canvas.addEventListener('click', display.click, false);
-	canvas.addEventListener('mousemove', display.highlight, false);
+	uiCanvas.addEventListener('click', display.click, false);
+	uiCanvas.addEventListener('mousemove', display.highlight, false);
 
 	display.displayStartMenu();
 });
