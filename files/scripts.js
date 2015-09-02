@@ -17,13 +17,14 @@ window.addEventListener("load", function(e) {
 	canvas = document.createElement("canvas");
 	var container = document.getElementById("container");
 	container.insertBefore(canvas, menu);
-	width = Math.floor(width * canvas_widthratio);
-	height = Math.floor( height * canvas_heightratio);
 
-	screen.setWidthHeight(width, height);
-	ui.setWidthHeight(Math.floor(width * ui_widthratio), height);
-	canvas.width = width;
-	canvas.height = height;
+	cwidth = Math.floor(width * canvas_widthratio);
+	cheight = Math.floor( height * canvas_heightratio);
+
+	screen.setWidthHeight(cwidth, cheight);
+	ui.setWidthHeight( width - cwidth - 40, cheight);
+	canvas.width = cwidth;
+	canvas.height = cheight;
 	canvas.id = "canvas";
 
 	ui.changeMenu();
