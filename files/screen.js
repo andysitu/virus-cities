@@ -10,13 +10,29 @@ var screen = {
 		this.yCenter = h/2;
 	},
 	click(e) {
-		console.log(e.clientX);
+		var that = screen;
+
+		if (that.showMenu == false) {
+			console.log(e.clientX);
+		} else {
+			that.showMenu();
+		}
+		
 	},
 	showMenu: false,
 	displayStartMenu() {
+		this.showMenu = this.startGame;
+		ctx.save();
+		ctx.clearRect(0,0, this.width, this.height);
+		ctx.textAlign = 'center';
+		ctx.fillText("Hello, please click to start", this.xCenter, this.yCenter - 50);
+		ctx.restore();
+	},
+	startGame() {
 		ctx.save();
 		ctx.clearRect(0,0, this.width, this.height);
 		ctx.textAlign = 'center';
 		ctx.fillText("Hello", this.xCenter, this.yCenter - 50);
+		ctx.restore();
 	}
 }
