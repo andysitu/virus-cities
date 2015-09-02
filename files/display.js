@@ -1,9 +1,8 @@
-var screen = {
+var display = {
 	width: 0,
 	height: 0,
 	xCenter: 0,
 	yCenter: 0,
-	blockSize: 20,
 	setWidthHeight(w, h) {
 		this.width = w;
 		this.height = h;
@@ -12,7 +11,7 @@ var screen = {
 	},
 	click(e) {
 		// an even
-		var that = screen;
+		var that = display;
 
 		if (that.showMenu == false) {
 			console.log(e.clientX);
@@ -67,6 +66,8 @@ var screen = {
 			for (var j = 0; j < stopY; j++) {
 				ctx.fillStyle = "red";
 				ctx.fillRect(i * blockSize, j * blockSize, blockSize, blockSize);
+				ctx.fillStyle = "black";
+				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);
 			}
 		}
 		ctx.restore();
