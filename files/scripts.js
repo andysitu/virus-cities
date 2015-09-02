@@ -12,6 +12,8 @@ window.addEventListener("load", function(e) {
 		ui_widthratio = 1/5,
 		blockSize = display.blockSize;
 
+	height *= 0.97
+
 	// width & height blocks are the blocks across the canvas shown
 	var heightBlocks = Math.floor(height / blockSize),
 		widthBlocks = Math.floor(width * canvas_widthratio / blockSize);
