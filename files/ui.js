@@ -8,5 +8,8 @@ var ui = {
 	changeMenu() {
 		menu.style.width = this.width + "px";
 		menu.style.height = this.height + "px";
+	},
+	display(str) {
+		menu.textContent = str;
 	}
 }
