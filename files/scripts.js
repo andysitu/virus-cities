@@ -4,13 +4,16 @@ var canvas,
 	menu;
 
 window.addEventListener("load", function(e) {
-	// Make canvas, set screen.width & height with screen.setWidthHeight,
+	// Make canvas, set display.width & height with display.setWidthHeight,
 	// set ui.width & height with ui.setWidthHeight.
 	var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
 		height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-		canvas_heightratio = 0.95,
 		canvas_widthratio = 4/5,
-		ui_widthratio = 1/5;
+		ui_widthratio = 1/5,
+		blockSize = display.blockSize;
+
+	height = Math.floor(height / blockSize) * blockSize;
+	cwidth = Math.floor(width * canvas_widthratio / blockSize) * blockSize;
 
 	menu = document.getElementById("menu");
 
@@ -18,13 +21,10 @@ window.addEventListener("load", function(e) {
 	var container = document.getElementById("container");
 	container.insertBefore(canvas, menu);
 
-	cwidth = Math.floor(width * canvas_widthratio);
-	cheight = Math.floor( height * canvas_heightratio);
-
-	screen.setWidthHeight(cwidth, cheight);
-	ui.setWidthHeight( width - cwidth - 40, cheight);
+	display.setWidthHeight(cwidth, height);
+	ui.setWidthHeight( width - cwidth - 40, height);
 	canvas.width = cwidth;
-	canvas.height = cheight;
+	canvas.height = height;
 	canvas.id = "canvas";
 
 	ui.changeMenu();
@@ -33,7 +33,7 @@ window.addEventListener("load", function(e) {
 	ctx.font = '20pt Calibri';
 
 	// canvas click event listener
-	canvas.addEventListener('click', screen.click, false);
+	canvas.addEventListener('click', display.click, false);
 
-	screen.displayStartMenu();
+	display.displayStartMenu();
 });
