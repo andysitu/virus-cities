@@ -9,6 +9,7 @@
 	border: 1px solid;
 	word-wrap: break-word;
 	position: auto auto;
+	text-align: left;
 }
 
 #canvas {
