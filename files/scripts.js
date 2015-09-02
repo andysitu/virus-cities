@@ -12,8 +12,12 @@ window.addEventListener("load", function(e) {
 		ui_widthratio = 1/5,
 		blockSize = display.blockSize;
 
-	height = Math.floor(height / blockSize) * blockSize;
-	cwidth = Math.floor(width * canvas_widthratio / blockSize) * blockSize;
+	// width & height blocks are the blocks across the canvas shown
+	var heightBlocks = Math.floor(height / blockSize),
+		widthBlocks = Math.floor(width * canvas_widthratio / blockSize);
+	height = heightBlocks * blockSize;
+	cwidth = widthBlocks * blockSize;
+	display.setMaxBlocks([widthBlocks, heightBlocks]);
 
 	menu = document.getElementById("menu");
 

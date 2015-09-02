@@ -3,6 +3,11 @@ var display = {
 	height: 0,
 	xCenter: 0,
 	yCenter: 0,
+	maxBlocks: [0,0],
+	setMaxBlocks(arr) {
+	// [0] is for width, [1] for height
+		this.maxBlocks = arr;
+	},
 	_blockSize: 20,
 	get blockSize() {
 		return this._blockSize;
@@ -51,6 +56,9 @@ var display = {
 		this.readMap();
 	},
 	readMap(startX, startY, stopX, stopY) {
+	// reads from map.world & displays it on canvas. If startX, etc
+	// are undefined, then these values will just show the entirety
+	// of the map.
 		var blockSize = this.blockSize,
 			width = this.width,
 			height = this.height,
