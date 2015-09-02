@@ -12,7 +12,7 @@ window.addEventListener("load", function(e) {
 		ui_widthratio = 1/5,
 		blockSize = display.blockSize;
 
-	height *= 0.97
+	height *= 0.95;
 
 	// width & height blocks are the blocks across the canvas shown
 	var heightBlocks = Math.floor(height / blockSize),
@@ -40,6 +40,7 @@ window.addEventListener("load", function(e) {
 
 	// canvas click event listener
 	canvas.addEventListener('click', display.click, false);
+	canvas.addEventListener('mousemove', display.highlight, false);
 
 	display.displayStartMenu();
 });

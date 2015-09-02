@@ -37,6 +37,20 @@ var display = {
 		}
 		
 	},
+	highlighted: [0,0],
+	highlight(e) {
+		var that = display,
+			hl = display.highlighted,
+			blockSize = that.blockSize,
+			world = map.world;
+
+		var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
+			y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
+
+		if (hl[0] != x || hl[1] != y) {
+			display.highlighted = [x,y];
+		}	
+	},
 
 	// If showMenu is false, click will run as it normally does
 	// meaning that clicks will register to map. Else, if it is
