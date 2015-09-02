@@ -22,9 +22,16 @@ var display = {
 		this.yCenter = h/2;
 	},
 	click(e) {
-		var that = display;
+		var that = display,
+			blockSize = that.blockSize,
+			world = map.world;
+
 		if (that.showMenu == false) {
-			console.log(e.clientX);
+			var x = Math.floor( (e.clientX - e.target.offsetLeft) / blockSize),
+				y = Math.floor( (e.clientY - e.target.offsetTop) / blockSize);
+
+			var obj = world[x][y].click();
+			ui.displayInfo(obj);
 		} else {
 			that.showMenu();
 		}

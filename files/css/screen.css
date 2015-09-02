@@ -9,6 +9,7 @@
 	border: 1px solid;
 	border-left-width: 0;
 	word-wrap: break-word;
+	white-space: pre-wrap;
 	position: auto auto;
 	text-align: left;
 }
