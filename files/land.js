@@ -1,6 +1,16 @@
+function inheritLand(context, land){
+	(function(land){
+		this.fertility = land.fertility 
+		this.livestock = land.livestock
+		this.resistance = land.resistance
+		this.x = land.x;
+		this.y = land.y;
+	}).call(context, land)
+}
+
 function Land(x,y) {
 	this.fertility = Math.floor(Math.random() * 1000); 
-	this.livestock = Math.floor(Math.random() * 4901) + 100;
+	this.livestock = Math.floor(Math.random() * 500);
 	this.resistance = Math.floor(Math.random() * 5) + 1;
 	this.id = "land";
 	this.x = x;
@@ -35,11 +45,10 @@ Land.prototype.infect = function(virusAmount) {
 
 Land.prototype.click = function() {
 	return {
-		id: this.id,
+		type: this.id,
 		fertility: this.fertility,
 		livestock: this.livestock,
 		resistance: this.resistance,
-		x: this.x,
-		y: this.y
+		"x, y": [this.x, this.y]
 	};
 };
