@@ -1,7 +1,10 @@
-function Land(fertility,livestock) {
+function Land(x,y) {
 	this.fertility = Math.floor(Math.random() * 1000); 
 	this.livestock = Math.floor(Math.random() * 4901) + 100;
 	this.resistance = Math.floor(Math.random() * 5) + 1;
+	this.id = "land";
+	this.x = x;
+	this.y = y;
 }
 
 Land.prototype.changeAmounts = function(fert,live,res) {
