@@ -14,9 +14,7 @@ var display = {
 		this.yCenter = h/2;
 	},
 	click(e) {
-		// an even
 		var that = display;
-
 		if (that.showMenu == false) {
 			console.log(e.clientX);
 		} else {
@@ -24,8 +22,15 @@ var display = {
 		}
 		
 	},
+
+	// If showMenu is false, click will run as it normally does
+	// meaning that clicks will register to map. Else, if it is
+	// not false, it'll point to a function that'll will when
+	// use clicks.
 	showMenu: false,
+
 	displayStartMenu() {
+		// Note: it sets showMenu to point to startGame!
 		this.showMenu = this.startGame;
 		ctx.save();
 		ctx.clearRect(0,0, this.width, this.height);
@@ -34,6 +39,8 @@ var display = {
 		ctx.restore();
 	},
 	startGame() {
+		this.showMenu = false;
+
 		ctx.save();
 		ctx.clearRect(0,0, this.width, this.height);
 		ctx.textAlign = 'center';
