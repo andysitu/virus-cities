@@ -11,8 +11,12 @@ map = {
 	getWorld() {
 		return this.world;
 	},
-	changeWorld(x,y, obj) {
+	setBlock(x, y, obj) {
 		this.world[x][y] = obj;
+		display.readMap();
+	},
+	getBlock(x,y) {
+		return this.world[x][y];
 	},
 	makeMap() {
 	// makes an array of arrays containing the data points for the
