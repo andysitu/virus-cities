@@ -33,8 +33,9 @@ var controller = {
 				ui.displayMenu("menu");
 		}
 	},
+	// reference to instance that user has selected
 	selected: null,
-	// current block selected by user
+	
 	clicked(e){
 		// handles click of user. Displays info of the clicked
 		// cell normally by calling on ui.
@@ -47,10 +48,11 @@ var controller = {
 			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
 				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
 
-			that.selected = [x,y]
-
-			// returns obj of what to display (for ui.displayInfo)
+			// Returns obj of what to display (for ui.displayInfo).
+			// world[x][y] is a pointer into an instance which has click method
 			var obj = world[x][y].click();
+
+			that.selected = world[x][y];
 			ui.displayInfo(obj);
 		} else {
 			that.showMenu();
