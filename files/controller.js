@@ -26,6 +26,7 @@ var controller = {
 	startGame() {
 		this.showMenu = false;
 		p1 = new Player();
+		p1.dispInfo();
 		map.makeMap();
 		display.startGame();
 	},
@@ -34,8 +35,10 @@ var controller = {
 
 		var that = controller
 		switch(true) {
-			case (e.keyCode == 77): // m
+			case (e.keyCode == 32): // space
 				ui.displayMenu("menu", that.selected.click());
+				e.preventDefault();
+				break;
 		}
 	},
 	// reference to instance that user has selected

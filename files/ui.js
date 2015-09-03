@@ -28,7 +28,7 @@ var ui = {
 		if (letter == "menu") {
 			var string = this.selectedInfo(infoObj);
 
-			string += "\nMenu";
+			string += "\nMenu:\nPress \"s\" to settle here";
 
 			this.display(string);
 		}
