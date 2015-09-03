@@ -4,12 +4,6 @@ var display = {
 	xCenter: 0,
 	yCenter: 0,
 	maxBlocks: [0,0],
-	offsetLeft: 0,
-	offsetTop: 0,
-	setOffset(x, y) {
-		this.offsetLeft = x;
-		this.offsetTop = y;
-	},
 	setMaxBlocks(arr) {
 	// [0] is for width, [1] for height
 		this.maxBlocks = arr;
@@ -31,55 +25,18 @@ var display = {
 		uiCanvas.width = w;
 		uiCanvas.height = h;
 	},
-	click(e) {
-		var that = display,
-			blockSize = that.blockSize,
-			world = map.world;
-
-		if (that.showMenu == false) {
-			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
-				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
-
-			var obj = world[x][y].click();
-			ui.displayInfo(obj);
-		} else {
-			that.showMenu();
-		}
-		
-	},
 	highlighted: [0,0],
-	highlight(e) {
-		var that = display;
-		if (that.showMenu == false) {
-			var that = display,
-				hl = display.highlighted,
-				blockSize = that.blockSize,
-				world = map.world;
+	highlight(x,y) {
+		var blockSize = this.blockSize;
 
-			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
-				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
-			if (hl[0] != x || hl[1] != y) {
-				that.highlighted = [x,y];
-				var hl = that.highlighted;
-
-				uictx.clearRect(0,0, this.width, this.height);
-				uictx.fillStyle = "red";
-				uictx.fillRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
-				uictx.fillStyle = "black";
-				uictx.strokeRect(hl[0] * blockSize, hl[1] * blockSize, blockSize, blockSize);
-			}
-		}	
+		uictx.clearRect(0,0, this.width, this.height);
+		uictx.fillStyle = "red";
+		uictx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
+		uictx.fillStyle = "black";
+		uictx.strokeRect(x * blockSize, y * blockSize, blockSize, blockSize);
 	},
-
-	// If showMenu is false, click will run as it normally does
-	// meaning that clicks will register to map. Else, if it is
-	// not false, it'll point to a function that'll will when
-	// use clicks.
-	showMenu: false,
 
 	displayStartMenu() {
-		// Note: it sets showMenu to point to startGame!
-		this.showMenu = this.startGame;
 		ctx.save();
 		ctx.clearRect(0,0, this.width, this.height);
 		ctx.textAlign = 'center';
@@ -87,15 +44,6 @@ var display = {
 		ctx.restore();
 	},
 	startGame() {
-		this.showMenu = false;
-
-		ctx.save();
-		ctx.clearRect(0,0, this.width, this.height);
-		ctx.textAlign = 'center';
-		ctx.fillText("Hello", this.xCenter, this.yCenter - 50);
-		ctx.restore();
-
-		map.makeMap();
 		this.readMap();
 	},
 	readMap(startX, startY) {
