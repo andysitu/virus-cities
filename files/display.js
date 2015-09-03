@@ -46,7 +46,7 @@ var display = {
 	startGame() {
 		this.readMap();
 	},
-	readMap(startX, startY) {
+	readMap(startX, startY) { // run when map is changed.
 	// reads from map.world & displays it on canvas. If startX, etc
 	// are undefined, then these values will just show the entirety
 	// of the map.
@@ -68,12 +68,27 @@ var display = {
 		ctx.clearRect(0,0, this.width, this.height);
 		for (var i = 0; i < stopX; i++) {
 			for (var j = 0; j < stopY; j++) {
-				ctx.fillStyle = "rgba(0,204,0,0.5)";
+				ctx.fillStyle = this.mapTranslate(i,j);
 				ctx.fillRect(i * blockSize, j * blockSize, blockSize, blockSize);
 				ctx.fillStyle = "black";
 				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);
 			}
 		}
 		ctx.restore();
+	},
+	mapTranslate(x,y) {
+		// translates the type of block into a color.
+		// Needs to be changed later for color to reflect
+		// the infection status, but that should be easy.
+		var block = map.getBlock(x,y);
+
+		switch(true) {
+			case (block instanceof Land):
+				return "rgba(0,204,0,0.5)";
+				break;
+			case (block instanceof Settlement):
+				return "gray";
+				break;
+		}
 	}
 }
