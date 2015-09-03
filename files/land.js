@@ -15,6 +15,7 @@ function Land(x,y) {
 	this.id = "land";
 	this.x = x;
 	this.y = y;
+	this.cost = 10000;
 }
 
 Land.prototype.changeAmounts = function(fert,live,res) {
@@ -49,6 +50,7 @@ Land.prototype.click = function() {
 		fertility: this.fertility,
 		livestock: this.livestock,
 		resistance: this.resistance,
-		"x, y": [this.x, this.y]
+		"x, y": [this.x, this.y],
+		"cost to settle here": this.cost
 	};
 };

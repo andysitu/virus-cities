@@ -16,6 +16,8 @@ var controller = {
 	// not false, it'll point to a function that'll will when
 	// use clicks.
 	showMenu: false,
+
+	// There is a start menu due to plans later (options selected by player)
 	startMenu() {
 		// Note: it sets showMenu to point to startGame!
 		this.showMenu = this.startGame;
