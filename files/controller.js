@@ -47,10 +47,14 @@ var controller = {
 				that.menu = true;
 				break;
 			case (that.menu == true && e.keyCode == 83):
-				var sel = that.selected,
-					coord = sel.getCoord();
-				that.settle(coord.x, coord.y, p1, sel);
-				that.menu = false;
+				var sel = that.selected;
+				if (sel instanceof Land) {
+					var coord = sel.getCoord();
+					that.settle(coord.x, coord.y, p1, sel);
+					that.menu = false;
+				} else {
+					ui.display("That's not land.");
+				}
 				break;
 		};
 	},
