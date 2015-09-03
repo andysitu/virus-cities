@@ -1,4 +1,8 @@
 var controller = {
+	// x & y might be used later in order to change which
+	// part of map is displayed.
+	x: 0,
+	y: 0,
 	// blockSize in display also needs to be changed if this is
 	_blockSize: 25,
 	get blockSize() {
@@ -38,24 +42,26 @@ var controller = {
 	},
 	keyPressed(e) {
 		//Note: keyCode is deprecated
+		var that = controller;
 
-		var that = controller
-		switch(true) {
-			case (e.keyCode == 32): // space
-				ui.displayMenu("menu", that.selected.click());
-				e.preventDefault();
-				that.menu = true;
-				break;
-			case (that.menu == true && e.keyCode == 83):
-				var sel = that.selected;
-				if (sel instanceof Land) {
-					that.settle(p1, sel);
-					that.menu = false;
-				} else {
-					ui.display("That's not land.");
-				}
-				break;
-		};
+		if (that.canvasMenu == false) {
+			switch(true) {
+				case (e.keyCode == 32): // space
+					ui.displayMenu("menu", that.selected.click());
+					e.preventDefault();
+					that.menu = true;
+					break;
+				case (that.menu == true && e.keyCode == 83):
+					var sel = that.selected;
+					if (sel instanceof Land) {
+						that.settle(p1, sel);
+						that.menu = false;
+					} else {
+						ui.display("That's not land.");
+					}
+					break;
+			};
+		}
 	},
 	// reference to instance that user has selected
 	selected: null,
@@ -91,8 +97,7 @@ var controller = {
 		var that = controller;
 		if (that.canvasMenu == false) {
 			var hl = that.highlighted,
-				blockSize = that.blockSize,
-				world = map.world;
+				blockSize = that.blockSize;
 
 			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
 				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
@@ -110,7 +115,7 @@ var controller = {
 			coord = land.getCoord();
 
 		this.settlements["settlement" + player.count] = settlement;
-		map.changeWorld(coord.x, coord.y, settlement);
+		map.setBlock(coord.x, coord.y, settlement);
 		player.change(-land.cost, 1);
 		ui.display("You settled at " + coord.x + ", " + coord.y);
 	}
