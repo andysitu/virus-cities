@@ -24,9 +24,13 @@ var ui = {
 
 		return str;
 	},
-	displayMenu(letter) {
+	displayMenu(letter, infoObj) {
 		if (letter == "menu") {
-			this.display("Menu");
+			var string = this.selectedInfo(infoObj);
+
+			string += "\nMenu";
+
+			this.display(string);
 		}
 	}
 }

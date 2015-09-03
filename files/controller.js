@@ -28,9 +28,11 @@ var controller = {
 	},
 	keyPressed(e) {
 		//Note: keyCode is deprecated
+
+		var that = controller
 		switch(true) {
 			case (e.keyCode == 77): // m
-				ui.displayMenu("menu");
+				ui.displayMenu("menu", that.selected.click());
 		}
 	},
 	// reference to instance that user has selected
