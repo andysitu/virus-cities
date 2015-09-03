@@ -16,13 +16,12 @@ var controller = {
 	// not false, it'll point to a function that'll will when
 	// use clicks.
 	_canvasMenu: false,
-	set canvasMenu(status) {
-		this._canvasMenu = status;
-	},
-	get canvasMenu() {
-		return this._canvasMenu;
-	},
-	},
+	set canvasMenu(status) { this._canvasMenu = status; },
+	get canvasMenu() { return this._canvasMenu; },
+	// menu is for the city selections. Prevents keypresses.
+	_menu: false,
+	set menu(status) { this._menu = status; },
+	get menu() { return this._menu; },
 
 	// There is a start menu due to plans later (options selected by player)
 	startMenu() {
@@ -45,8 +44,15 @@ var controller = {
 			case (e.keyCode == 32): // space
 				ui.displayMenu("menu", that.selected.click());
 				e.preventDefault();
+				that.menu = true;
 				break;
-		}
+			case (that.menu == true && e.keyCode == 83):
+				var sel = that.selected,
+					coord = sel.getCoord();
+				that.settle(coord.x, coord.y, p1, sel);
+				that.menu = false;
+				break;
+		};
 	},
 	// reference to instance that user has selected
 	selected: null,
@@ -55,6 +61,7 @@ var controller = {
 		// handles click of user. Displays info of the clicked
 		// cell normally by calling on ui.
 		var that = controller;
+		that.menu = false;
 
 		if (that.canvasMenu == false) {
 			var blockSize = that.blockSize,
@@ -92,5 +99,14 @@ var controller = {
 				display.highlight(x,y);
 			}
 		}	
+	},
+	settlements: {},
+
+	settle(x, y, player, land) {
+		var settlement = new Settlement(land);
+		this.settlements["settlement" + player.count] = settlement;
+		map.changeWorld(x, y, settlement);
+		player.change(-land.cost, 1);
+		ui.display("You settled at " + x + ", " + y);
 	}
 };

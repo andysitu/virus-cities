@@ -18,6 +18,10 @@ function Land(x,y) {
 	this.cost = 10000;
 }
 
+Land.prototype.getCoord = function() {
+	return {x: this.x, y: this.y};
+};
+
 Land.prototype.changeAmounts = function(fert,live,res) {
 	if (fert == undefined) { fert = 0; }
 	if (live == undefined) { live = 0; }
