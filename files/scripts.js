@@ -53,6 +53,7 @@ window.addEventListener("load", function(e) {
 	// canvas click event listener
 	uiCanvas.addEventListener('click', controller.clicked, false);
 	uiCanvas.addEventListener('mousemove', controller.highlight, false);
+	window.addEventListener('keydown', controller.keyPressed, false);
 
 	controller.startMenu();
 });

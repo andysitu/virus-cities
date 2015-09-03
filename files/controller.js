@@ -10,6 +10,7 @@ var controller = {
 		this.offsetLeft = x;
 		this.offsetTop = y;
 	},
+	
 	// If showMenu is false, click will run as it normally does
 	// meaning that clicks will register to map. Else, if it is
 	// not false, it'll point to a function that'll will when
@@ -25,7 +26,14 @@ var controller = {
 		map.makeMap();
 		display.startGame();
 	},
+	keyPressed(e) {
+		console.log(e.keyCode);
+	},
+	selected: null,
+	// current block selected by user
 	clicked(e){
+		// handles click of user. Displays info of the clicked
+		// cell normally by calling on ui.
 		var that = controller;
 
 		if (that.showMenu == false) {
@@ -34,6 +42,8 @@ var controller = {
 
 			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
 				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
+
+			that.selected = [x,y]
 
 			// returns obj of what to display (for ui.displayInfo)
 			var obj = world[x][y].click();
@@ -45,6 +55,8 @@ var controller = {
 
 	highlighted: [0,0],
 	highlight(e) {
+		// when user scrolls mouse over canvas, this will activate
+		// and gives x, y to canvas for which block to highlight
 		var that = controller;
 		if (that.showMenu == false) {
 			var hl = that.highlighted,
