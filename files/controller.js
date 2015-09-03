@@ -49,8 +49,7 @@ var controller = {
 			case (that.menu == true && e.keyCode == 83):
 				var sel = that.selected;
 				if (sel instanceof Land) {
-					var coord = sel.getCoord();
-					that.settle(coord.x, coord.y, p1, sel);
+					that.settle(p1, sel);
 					that.menu = false;
 				} else {
 					ui.display("That's not land.");
@@ -106,11 +105,13 @@ var controller = {
 	},
 	settlements: {},
 
-	settle(x, y, player, land) {
-		var settlement = new Settlement(land);
+	settle(player, land) {
+		var settlement = new Settlement(land),
+			coord = land.getCoord();
+
 		this.settlements["settlement" + player.count] = settlement;
-		map.changeWorld(x, y, settlement);
+		map.changeWorld(coord.x, coord.y, settlement);
 		player.change(-land.cost, 1);
-		ui.display("You settled at " + x + ", " + y);
+		ui.display("You settled at " + coord.x + ", " + coord.y);
 	}
 };
