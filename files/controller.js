@@ -15,22 +15,23 @@ var controller = {
 	// meaning that clicks will register to map. Else, if it is
 	// not false, it'll point to a function that'll will when
 	// use clicks.
-	canvasMenu: false,
-	setCanvasMenuStatus(status) {
-		this.canvasMenu = status;
+	_canvasMenu: false,
+	set canvasMenu(status) {
+		this._canvasMenu = status;
 	},
-	getCanvasMenuStatus() {
-		return this.canvasMenu;
+	get canvasMenu() {
+		return this._canvasMenu;
+	},
 	},
 
 	// There is a start menu due to plans later (options selected by player)
 	startMenu() {
 		// Note: it sets CanvasMenuStatus to point to startGame!
-		this.setCanvasMenuStatus(this.startGame);
+		this.canvasMenu = this.startGame;
 		display.displayStartMenu();
 	},
 	startGame() {
-		this.setCanvasMenuStatus(false);
+		this.canvasMenu = false;
 		p1 = new Player();
 		p1.dispInfo();
 		map.makeMap();
@@ -55,7 +56,7 @@ var controller = {
 		// cell normally by calling on ui.
 		var that = controller;
 
-		if (that.getCanvasMenuStatus() == false) {
+		if (that.canvasMenu == false) {
 			var blockSize = that.blockSize,
 				world = map.getWorld();
 
@@ -69,7 +70,7 @@ var controller = {
 			that.selected = world[x][y];
 			ui.displayInfo(obj);
 		} else {
-			that.getCanvasMenuStatus().bind(that)();
+			(that.canvasMenu).bind(that)();
 		}
 	},
 
@@ -78,7 +79,7 @@ var controller = {
 		// when user scrolls mouse over canvas, this will activate
 		// and gives x, y to canvas for which block to highlight
 		var that = controller;
-		if (that.getCanvasMenuStatus() == false) {
+		if (that.canvasMenu == false) {
 			var hl = that.highlighted,
 				blockSize = that.blockSize,
 				world = map.world;
