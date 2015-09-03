@@ -11,13 +11,18 @@ var ui = {
 		menu.textContent = str;
 	},
 	displayInfo(obj) {
+		var str = this.selectedInfo(obj);
+
+		this.display(str);
+	},
+	selectedInfo(obj) {
 		var str = "Selected:\n";
 
 		for (var key in obj) {
 			str += " " + key + ": " + obj[key] + "\n";
 		}
 
-		this.display(str);
+		return str;
 	},
 	displayMenu(letter) {
 		if (letter == "menu") {
