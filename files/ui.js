@@ -11,7 +11,7 @@ var ui = {
 		menu.textContent = str;
 	},
 	displayInfo(obj) {
-		var str = "";
+		var str = "Selected:\n";
 
 		for (var key in obj) {
 			str += " " + key + ": " + obj[key] + "\n";

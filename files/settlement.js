@@ -4,5 +4,3 @@ function Settlement(inherited) {
 	this.id = "settlement";
 	inheritLand(this, inherited);
 }
-
-var test;

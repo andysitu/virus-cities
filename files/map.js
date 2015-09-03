@@ -11,6 +11,9 @@ map = {
 	getWorld() {
 		return this.world;
 	},
+	changeWorld(x,y, obj) {
+		this.world[x][y] = obj;
+	},
 	makeMap() {
 	// makes an array of arrays containing the data points for the
 	// map. If the given lens are too small, then it'll increase
@@ -36,5 +39,5 @@ map = {
 				world[i].push(land);
 			}
 		}
-	},
+	}
 }
