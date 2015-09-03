@@ -1,10 +1,13 @@
 // Page is for onload function for window
+
+// Global objects put here:
 var canvas,
 	uiCanvas,
 	ctx,
 	uictx,
 	menu,
-	status_display;
+	status_display,
+	p1; // player 1
 
 window.addEventListener("load", function(e) {
 	// Make canvas, set display.width & height with display.setWidthHeight,

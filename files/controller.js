@@ -25,6 +25,7 @@ var controller = {
 	},
 	startGame() {
 		this.showMenu = false;
+		p1 = new Player();
 		map.makeMap();
 		display.startGame();
 	},
