@@ -27,7 +27,11 @@ var controller = {
 		display.startGame();
 	},
 	keyPressed(e) {
-		console.log(e.keyCode);
+		//Note: keyCode is deprecated
+		switch(true) {
+			case (e.keyCode == 77): // m
+				ui.displayMenu("menu");
+		}
 	},
 	selected: null,
 	// current block selected by user

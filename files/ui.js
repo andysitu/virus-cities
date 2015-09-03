@@ -18,5 +18,10 @@ var ui = {
 		}
 
 		this.display(str);
+	},
+	displayMenu(letter) {
+		if (letter == "menu") {
+			this.display("Menu");
+		}
 	}
 }
