@@ -7,7 +7,7 @@ function Player() {
 // pstatus div changing.
 Player.prototype.change = function(moneyValue, count) {
 	if (-moneyValue <= this.money) {
-		this.money += moneyValue;
+		this.money += moneyFormatter(moneyValue);
 		this.count += count;
 		this.dispInfo();
 		return true;
@@ -19,7 +19,7 @@ Player.prototype.change = function(moneyValue, count) {
 
 Player.prototype.dispInfo = function() {
 	pstatus.displayInfo({
-		"money": "$" +this.money,
+		"money": "$" + makeCommas(this.money),
 		"# of cities": this.count
 	});
 };
