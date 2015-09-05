@@ -29,8 +29,22 @@ Player.prototype.addCity = function(city) {
 	this.cities[str] = city;
 };
 
-Player.protoype.removeCity = function(city) {
+Player.prototype.removeCity = function(city) {
 	var str = city.x + "_" + city.y;
-	delete obj[str];
+	delete this.cities[str];
 };
+
+
+Player.prototype.settle = function(land) {
+	if (this.change(-land.cost, 1)) {
+		var settlement = new Settlement(land),
+			coord = land.getCoord();
+
+		map.setBlock(coord.x, coord.y, settlement);
+		
+		ui.display("You settled at " + coord.x + ", " + coord.y);
+		this.menu = false;
+	} else {
+		ui.display("You don't have enough money to settle again.");
+	}
 };

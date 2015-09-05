@@ -99,22 +99,9 @@ var controller = {
 			}
 		}	
 	},
-	settlements: {},
-
 	settle(player, land) {
 		if (land instanceof Land) {
-			if (player.change(-land.cost, 1)) {
-				var settlement = new Settlement(land),
-					coord = land.getCoord();
-
-				this.settlements["settlement" + player.count] = settlement;
-				map.setBlock(coord.x, coord.y, settlement);
-				
-				ui.display("You settled at " + coord.x + ", " + coord.y);
-				this.menu = false;
-			} else {
-				ui.display("You don't have enough money to settle again.");
-			}
+			player.settle(land);
 			
 		} else {
 			ui.display("That's not land.");
