@@ -64,17 +64,16 @@ var controller = {
 		that.menu = false;
 
 		if (that.canvasMenu == false) {
-			var blockSize = that.blockSize,
-				world = map.getWorld();
+			var blockSize = that.blockSize;
 
 			var x = Math.floor( (e.clientX - that.offsetLeft) / blockSize),
 				y = Math.floor( (e.clientY - that.offsetTop) / blockSize);
 
 			// Returns obj of what to display (for ui.displayInfo).
 			// world[x][y] is a pointer into an instance which has click method
-			var obj = world[x][y].click();
+			that.selected = map.getBlock(x, y);
 
-			that.selected = world[x][y];
+			var obj = that.selected.click();
 			ui.displayInfo(obj);
 		} else {
 			(that.canvasMenu).bind(that)();

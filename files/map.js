@@ -8,9 +8,6 @@ map = {
 		this.lenY = value;
 	},
 	world: [],
-	getWorld() {
-		return this.world;
-	},
 	setBlock(x, y, obj) {
 		this.world[x][y] = obj;
 		display.readMap();

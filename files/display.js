@@ -53,7 +53,6 @@ var display = {
 		var blockSize = this.blockSize,
 			width = this.width,
 			height = this.height,
-			world = map.getWorld(),
 			max= this.maxBlocks;
 
 		if (startX === undefined) {
