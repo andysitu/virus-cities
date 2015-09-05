@@ -22,15 +22,8 @@ var ui = {
 			str += " " + key + ": " + obj[key] + "\n";
 		}
 
+		str += "\nMenu:\nPress \"s\" to settle here";
+
 		return str;
-	},
-	displayMenu(letter, infoObj) {
-		if (letter == "menu") {
-			var string = this.selectedInfo(infoObj);
-
-			string += "\nMenu:\nPress \"s\" to settle here";
-
-			this.display(string);
-		}
 	}
 }
