@@ -44,14 +44,9 @@ var controller = {
 		//Note: keyCode is deprecated
 		var that = controller;
 
-		if (that.canvasMenu == false) {
+		if (that.selected != null) {
 			switch(true) {
-				case (e.keyCode == 32): // space
-					ui.displayMenu("menu", that.selected.click());
-					e.preventDefault();
-					that.menu = true;
-					break;
-				case (that.menu == true && e.keyCode == 83):
+				case (e.keyCode == 83):
 					var sel = that.selected;
 
 					that.settle(p1, sel);
