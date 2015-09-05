@@ -16,6 +16,9 @@ function Land(x,y) {
 	this.x = x;
 	this.y = y;
 	this.cost = 10000;
+
+	// This will be persistence in all instances (even inherited);
+	this.type = "land";
 }
 
 Land.prototype.getCoord = function() {

@@ -3,6 +3,9 @@ function Settlement(inherited) {
 	this.inherited = inherited;
 	this.id = "settlement";
 	inheritLand(this, inherited);
+	
+	// This will be persistence in all instances (even inherited);
+	this.type = "settlement";
 }
 
 Settlement.prototype.click = function() {
