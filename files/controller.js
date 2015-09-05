@@ -74,7 +74,7 @@ var controller = {
 			that.selected = map.getBlock(x, y);
 
 			var obj = that.selected.click();
-			ui.displayInfo(obj);
+			ui.displayInfo(obj, that.selected.type);
 		} else {
 			(that.canvasMenu).bind(that)();
 		}

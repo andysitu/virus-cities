@@ -10,20 +10,28 @@ var ui = {
 	display(str) {
 		menu.textContent = str;
 	},
-	displayInfo(obj) {
-		var str = this.selectedInfo(obj);
+	displayInfo(obj, type) {
+	  // Note: obj is not that actual land instance. It's just
+	  // the obj containing selected key & values.
+		var str = this.selectedInfo(obj, type);
 
 		this.display(str);
 	},
-	selectedInfo(obj) {
+	selectedInfo(obj, type) {
+	// Makes the string for displayInfo to use.
 		var str = "Selected:\n";
 
 		for (var key in obj) {
 			str += " " + key + ": " + obj[key] + "\n";
 		}
 
-		str += "\nMenu:\nPress \"s\" to settle here";
-
-		return str;
+		if (type == "land") {
+			str += "\nMenu:\nPress \"s\" to settle here";
+		} else if (obj instanceof Land) {
+			
+		} else {
+			throw "ui.selectedInfo: " + type;
+		}
+			return str;
 	}
 }
