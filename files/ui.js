@@ -27,8 +27,8 @@ var ui = {
 
 		if (type == "land") {
 			str += "\nMenu:\nPress \"s\" to settle here";
-		} else if (obj instanceof Land) {
-			
+		} else if (type == "settlement") {
+
 		} else {
 			throw "ui.selectedInfo: " + type;
 		}
