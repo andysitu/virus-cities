@@ -1,6 +1,7 @@
 function Player() {
 	this.money = 20000;
 	this.count = 0;
+	this.cities = {};
 }
 
 // any changes to prototype will lead to change in
@@ -14,7 +15,6 @@ Player.prototype.change = function(moneyValue, count) {
 	} else {
 		return false;
 	}
-	
 };
 
 Player.prototype.dispInfo = function() {
@@ -22,4 +22,15 @@ Player.prototype.dispInfo = function() {
 		"money": "$" + makeCommas(this.money),
 		"# of cities": this.count
 	});
+};
+
+Player.prototype.addCity = function(city) {
+	var str = city.x + "_" + city.y;
+	this.cities[str] = city;
+};
+
+Player.protoype.removeCity = function(city) {
+	var str = city.x + "_" + city.y;
+	delete obj[str];
+};
 };
