@@ -41,9 +41,7 @@ Player.prototype.settle = function(land) {
 
 		this.addCity(settlement);
 		map.setBlock(coord.x, coord.y, settlement);
-		
-		ui.settle(coord.x, coord.y);
-		this.menu = false;
+		return settlement;
 	} else {
 		ui.noMoneySettle();
 	}

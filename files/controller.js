@@ -105,8 +105,13 @@ var controller = {
 	},
 	settle(player, land) {
 		if (land instanceof Land) {
-			player.settle(land);
-			
+			var settle = player.settle(land),
+				obj = settle.click();
+				
+			this.selected = settle;
+
+			ui.setSelected(obj);
+			ui.settle();
 		} else {
 			ui.notLand();
 		}
