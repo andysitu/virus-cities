@@ -50,5 +50,9 @@ Player.prototype.settle = function(land) {
 };
 
 Player.prototype.run = function() {
+	var cities = this.cities;
 
+	for (var key in cities) {
+		cities[key].run();
+	}
 }
