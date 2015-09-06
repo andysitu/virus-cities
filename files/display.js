@@ -41,6 +41,8 @@ var display = {
 		uictx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
 		uictx.fillStyle = "black";
 		uictx.strokeRect(x * blockSize, y * blockSize, blockSize, blockSize);
+		uictx.fillStyle = "black";
+		uictx.strokeRect(this.selected[0] * blockSize, this.selected[1] * blockSize, blockSize, blockSize);
 	},
 
 	displayStartMenu() {
@@ -76,8 +78,6 @@ var display = {
 			for (var j = 0; j < stopY; j++) {
 				ctx.fillStyle = this.mapTranslate(i,j);
 				ctx.fillRect(i * blockSize, j * blockSize, blockSize, blockSize);
-				ctx.fillStyle = "black";
-				ctx.strokeRect(i * blockSize, j * blockSize, blockSize, blockSize);
 			}
 		}
 		ctx.restore();
