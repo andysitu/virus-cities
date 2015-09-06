@@ -7,29 +7,23 @@ var ui = {
 		menu.style.width = width + "px";
 		menu.style.height = height + "px";
 	},
+	selected: {},
+	setSelected(obj) {
+		this.selected = obj;
+	},
 	display(str) {
 		menu.textContent = str;
+	},
+	displayMsg(str) {
+		var msg = this.selectedInfo() + "\n" + str;
+
+		this.display(msg);
 	},
 	displayInfo(type) {
 	  // Note: obj is not that actual land instance. It's just
 	  // the obj containing selected key & values.
 		var str = this.selectedInfo(type);
-
-		this.display(str);
-	},
-	selected: {},
-	setSelected(obj) {
-		this.selected = obj;
-	},
-	selectedInfo(type) {
-	// Makes the string for displayInfo to use.
-		var str = "Selected:\n",
-			obj = this.selected;
-
-		for (var key in obj) {
-			str += " " + key + ": " + obj[key] + "\n";
-		}
-
+		
 		if (type == "land") {
 			str += "\nMenu:\nPress \"s\" to settle here";
 		} else if (type == "settlement") {
@@ -38,15 +32,26 @@ var ui = {
 			throw "ui.selectedInfo: " + type;
 		}
 
+		this.display(str);
+	},
+	selectedInfo() {
+	// Makes the string for displayInfo to use.
+		var str = "Selected:\n",
+			obj = this.selected;
+
+		for (var key in obj) {
+			str += " " + key + ": " + obj[key] + "\n";
+		}
+
 		return str;
 	},
 	noMoneySettle() {
-		this.display("You don't have enough money to settle again.");
+		this.displayMsg("You don't have enough money to settle again.");
 	},
 	settle(x,y) {
-		this.display("You settled at " + x + ", " + y);
+		this.displayMsg("You settled at " + x + ", " + y);
 	},
 	notLand() {
-		this.display("That's not land.");
+		this.displayMsg("That's not land.");
 	}
 };

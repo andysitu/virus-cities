@@ -8,7 +8,7 @@ function Settlement(inherited) {
 	this.infected = 0;
 	this.profit = 0;
 	this.treasure = 0;
-	this.food = 1;
+	this.food = 0;
 
 	// This will be persistence in all instances (even inherited);
 	this.type = "settlement";
