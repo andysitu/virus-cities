@@ -17,7 +17,7 @@ window.addEventListener("load", function(e) {
 		canvas_widthratio = 4/5,
 		ui_widthratio = 1/5,
 		blockSize = display.blockSize,
-		statusHeight = 100;
+		statusHeight = 50;
 
 	height *= 0.95;
 
@@ -42,7 +42,7 @@ window.addEventListener("load", function(e) {
 
 	display.setWidthHeight(cwidth, height);
 	ui.setWidthHeight( menuWidth, height - statusHeight);
-	pstatus	.setWidthHeight( menuWidth, statusHeight);
+	pstatus.setWidthHeight( menuWidth, statusHeight);
 	canvas_container.style.width = cwidth + "px";
 	canvas_container.style.height = height + "px";
 	menus.style.width = menuWidth + "px";

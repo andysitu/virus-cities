@@ -20,7 +20,6 @@ Player.prototype.change = function(moneyValue, count) {
 Player.prototype.dispInfo = function() {
 	pstatus.displayInfo({
 		"money": "$" + makeCommas(this.money),
-		"# of cities": this.count
 	});
 };
 
@@ -40,6 +39,7 @@ Player.prototype.settle = function(land) {
 		var settlement = new Settlement(land),
 			coord = land.getCoord();
 
+		this.addCity(settlement);
 		map.setBlock(coord.x, coord.y, settlement);
 		
 		ui.display("You settled at " + coord.x + ", " + coord.y);
