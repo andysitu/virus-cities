@@ -39,6 +39,8 @@ var controller = {
 		p1.dispInfo();
 		map.makeMap();
 		display.startGame();
+
+		game.run();
 	},
 	keyPressed(e) {
 		//Note: keyCode is deprecated

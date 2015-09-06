@@ -6,7 +6,7 @@ var game = (function () {
 		var now = Date.now();
 
 		if (now - prevTime > 1000) {
-			console.log("More than a second has passed!");
+			p1.run();
 
 			prevTime = now;
 		}
