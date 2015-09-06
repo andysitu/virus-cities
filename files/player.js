@@ -42,9 +42,13 @@ Player.prototype.settle = function(land) {
 		this.addCity(settlement);
 		map.setBlock(coord.x, coord.y, settlement);
 		
-		ui.display("You settled at " + coord.x + ", " + coord.y);
+		ui.settle(coord.x, coord.y);
 		this.menu = false;
 	} else {
-		ui.display("You don't have enough money to settle again.");
+		ui.noMoneySettle();
 	}
 };
+
+Player.prototype.run = function() {
+
+}

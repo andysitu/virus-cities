@@ -32,6 +32,14 @@ var ui = {
 		} else {
 			throw "ui.selectedInfo: " + type;
 		}
-			return str;
+
+		return str;
+	},
+	noMoneySettle() {
+		this.display("You don't have enough money to settle again.");
+	},
+	settle(x,y) {
+		this.display("You settled at " + x + ", " + y);
 	}
-}
+
+};
