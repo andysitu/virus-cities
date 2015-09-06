@@ -26,6 +26,13 @@ var display = {
 		uiCanvas.height = h;
 	},
 	highlighted: [0,0],
+	setHighlighted(x,y) {
+		this.highlighted = [x,y];
+	},
+	selected: [0,0],
+	setSelected(x,y) {
+		this.selected = [x,y];
+	},
 	highlight(x,y) {
 		var blockSize = this.blockSize;
 

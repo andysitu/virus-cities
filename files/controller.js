@@ -73,6 +73,8 @@ var controller = {
 			// world[x][y] is a pointer into an instance which has click method
 			that.selected = map.getBlock(x, y);
 
+			display.setSelected(x,y);
+
 			var obj = that.selected.click();
 			ui.displayInfo(obj, that.selected.type);
 		} else {
