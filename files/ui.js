@@ -10,16 +10,21 @@ var ui = {
 	display(str) {
 		menu.textContent = str;
 	},
-	displayInfo(obj, type) {
+	displayInfo(type) {
 	  // Note: obj is not that actual land instance. It's just
 	  // the obj containing selected key & values.
-		var str = this.selectedInfo(obj, type);
+		var str = this.selectedInfo(type);
 
 		this.display(str);
 	},
-	selectedInfo(obj, type) {
+	selected: {},
+	setSelected(obj) {
+		this.selected = obj;
+	},
+	selectedInfo(type) {
 	// Makes the string for displayInfo to use.
-		var str = "Selected:\n";
+		var str = "Selected:\n",
+			obj = this.selected;
 
 		for (var key in obj) {
 			str += " " + key + ": " + obj[key] + "\n";
@@ -40,6 +45,8 @@ var ui = {
 	},
 	settle(x,y) {
 		this.display("You settled at " + x + ", " + y);
+	},
+	notLand() {
+		this.display("That's not land.");
 	}
-
 };
