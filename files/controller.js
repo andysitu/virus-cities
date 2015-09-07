@@ -74,15 +74,24 @@ var controller = {
 			// Returns obj of what to display (for ui.displayInfo).
 			// world[x][y] is a pointer into an instance which has click method
 			that.selected = map.getBlock(x, y);
-			var obj = that.selected.click();
 
 			display.setSelected(x,y);
-			ui.setSelected(obj);
 
-			ui.displayInfo(obj.type);
+			that.uiSelect();
 		} else {
 			(that.canvasMenu).bind(that)();
 		}
+	},
+	uiSelect() {
+		try {
+			var obj = this.selected.click();
+			ui.setSelected(obj);
+
+			ui.displayInfo(obj.type);
+		} catch(e) {
+			// Player hasn't selected yet. Left blank.	
+		}
+		
 	},
 
 	highlighted: [0,0],
