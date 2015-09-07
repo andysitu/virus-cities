@@ -76,6 +76,7 @@ var controller = {
 			that.selected = map.getBlock(x, y);
 
 			display.setSelected(x,y);
+			display.highlight(x,y);
 
 			that.uiSelect();
 		} else {
