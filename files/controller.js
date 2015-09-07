@@ -124,5 +124,9 @@ var controller = {
 		} else {
 			ui.notLand();
 		}
+	},
+
+	run() {
+		this.uiSelect();
 	}
 };

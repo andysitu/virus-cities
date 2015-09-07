@@ -7,6 +7,7 @@ var game = (function () {
 
 		if (now - prevTime > 1000) {
 			p1.run();
+			controller.run();
 
 			prevTime = now;
 		}
