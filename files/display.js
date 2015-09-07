@@ -40,6 +40,7 @@ var display = {
 	highlight(x,y) {
 		var blockSize = this.blockSize;
 
+		uictx.save();
 		uictx.clearRect(0,0, this.width, this.height);
 		uictx.fillStyle = "red";
 		uictx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
@@ -47,6 +48,7 @@ var display = {
 		uictx.strokeRect(x * blockSize, y * blockSize, blockSize, blockSize);
 		uictx.fillStyle = "black";
 		uictx.strokeRect(this.selected[0] * blockSize, this.selected[1] * blockSize, blockSize, blockSize);
+		uictx.restore();
 	},
 
 	displayStartMenu() {
