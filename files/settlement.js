@@ -15,6 +15,7 @@ function Settlement(inherited) {
 }
 
 Settlement.prototype.click = function() {
+	// info obj given to ui obj which will display as it is.
 	return {
 		type: this.id,
 		fertility: this.fertility,
@@ -31,5 +32,6 @@ Settlement.prototype.calculatePop = function() {
 };
 
 Settlement.prototype.run = function() {
+	// Player instance calls on this for every settlement
 	this.calculatePop();
 };

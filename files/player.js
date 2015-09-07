@@ -48,6 +48,7 @@ Player.prototype.settle = function(land) {
 };
 
 Player.prototype.run = function() {
+	// This is run in the game loop.
 	var cities = this.cities;
 
 	for (var key in cities) {
