@@ -38,7 +38,7 @@ window.addEventListener("load", function(e) {
 	canvas_container = document.getElementById("canvases");
 	status_display = document.getElementById("status_display");
 
-	var menus = document.getElementById("menus");
+	var menus = document.getElementById("menu_container");
 
 	display.setWidthHeight(cwidth, height);
 	ui.setWidthHeight( menuWidth, height - statusHeight);
