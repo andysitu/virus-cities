@@ -42,11 +42,9 @@ var display = {
 
 		uictx.save();
 		uictx.clearRect(0,0, this.width, this.height);
-		uictx.fillStyle = "red";
-		uictx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
-		uictx.fillStyle = "black";
+		uictx.strokeStyle = "white";
 		uictx.strokeRect(x * blockSize, y * blockSize, blockSize, blockSize);
-		uictx.fillStyle = "black";
+		uictx.strokeStyle = "red";
 		uictx.strokeRect(this.selected[0] * blockSize, this.selected[1] * blockSize, blockSize, blockSize);
 		uictx.restore();
 	},
