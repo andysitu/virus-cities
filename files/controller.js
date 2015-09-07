@@ -79,7 +79,7 @@ var controller = {
 			display.setSelected(x,y);
 			ui.setSelected(obj);
 
-			ui.displayInfo(that.selected.type);
+			ui.displayInfo(obj.type);
 		} else {
 			(that.canvasMenu).bind(that)();
 		}
