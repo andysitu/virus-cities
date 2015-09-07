@@ -11,9 +11,13 @@ var display = {
 	getMaxBlocks() {
 		return this.maxBlocks;
 	},
-	_blockSize: 25,
+	_blockSize: 0,
+	// blockSize set in script.js on load
 	get blockSize() {
 		return this._blockSize;
+	},
+	set blockSize(value) {
+		this._blockSize = value;
 	},
 	setWidthHeight(w, h) {
 		this.width = w;

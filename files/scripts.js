@@ -16,8 +16,10 @@ window.addEventListener("load", function(e) {
 		height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
 		canvas_widthratio = 4/5,
 		ui_widthratio = 1/5,
-		blockSize = display.blockSize,
+		blockSize = 25,
 		statusHeight = 50;
+
+	display.blockSize = 25;
 
 	height *= 0.95;
 
@@ -31,8 +33,8 @@ window.addEventListener("load", function(e) {
 
 	var menuWidth = width - cwidth - 40;
 
+	// Global object initialization
 	menu = document.getElementById("menu");
-
 	canvas = document.getElementById("game-canvas");
 	uiCanvas = document.getElementById("ui-canvas");
 	canvas_container = document.getElementById("canvases");
@@ -52,6 +54,7 @@ window.addEventListener("load", function(e) {
 	ctx = canvas.getContext('2d');
 	uictx = uiCanvas.getContext('2d');
 	uictx.font = ctx.font = '20pt Calibri';
+	ctx.font = ctx.font = '20pt Calibri';
 
 	// canvas click event listener
 	uiCanvas.addEventListener('click', controller.clicked, false);
