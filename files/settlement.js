@@ -57,4 +57,6 @@ Settlement.prototype.run = function() {
 	// Player instance calls on this for every settlement
 	this.calculatePop();
 	this.runQueue();
-};
+};Settlement.prototype.getType = function() {
+	return this.type;
+}

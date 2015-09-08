@@ -6,6 +6,10 @@ function Player() {
 	this.type = "player";
 }
 
+Player.prototype.getType = function() {
+	return this.type;
+}
+
 // any changes to prototype will lead to change in
 // pstatus div changing.
 Player.prototype.change = function(moneyValue, count) {
@@ -57,3 +61,4 @@ Player.prototype.run = function() {
 		cities[key].run();
 	}
 }
+

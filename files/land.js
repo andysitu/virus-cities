@@ -21,6 +21,10 @@ function Land(x,y) {
 	this.type = "land";
 }
 
+Land.prototype.getType = function() {
+	return this.type;
+}
+
 Land.prototype.getCoord = function() {
 	return {x: this.x, y: this.y};
 };
