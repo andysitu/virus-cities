@@ -44,17 +44,19 @@ var controller = {
 	},
 	keyPressed(e) {
 		//Note: keyCode is deprecated
-		var that = controller;
+		var that = controller,
+			selected = that.selected;
 
-		if (that.selected != null) {
-			switch(true) {
-				case (e.keyCode == 83):
-					var sel = that.selected;
-
-					that.settle(p1, sel);
-					break;
-			};
-		}
+	  if (selected != null) {
+	    switch(true) {
+	  	  case (e.keyCode == 83): // s key
+		    that.settle(p1, selected);
+		    break;
+		  case (e.keyCode == 66 && // b key
+		  	selected.getType() == "settlement"):
+		    selected.buildMenu();
+		};
+	  }
 	},
 	// reference to instance that user has selected
 	selected: null,

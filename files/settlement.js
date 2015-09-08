@@ -58,7 +58,8 @@ Settlement.prototype.run = function() {
 	// Player instance calls on this for every settlement
 	this.calculatePop();
 	this.runQueue();
-};Settlement.prototype.getType = function() {
+};
+
 Settlement.prototype.increaseFood = function(value) {
 	this.food += value;
 }
@@ -66,5 +67,17 @@ Settlement.prototype.increaseFood = function(value) {
 Settlement.prototype.getPopulation = function() {
 	return this.population;
 }
+
+Settlement.prototype.buildMenu = function() {
+	this.build(Farm);
+	console.log("I want to build a building!");
+};
+
+Settlement.prototype.build = function(Building) {
+	var building = new Building();
+	console.log(building);
+}
+
+Settlement.prototype.getType = function() {
 	return this.type;
 }
