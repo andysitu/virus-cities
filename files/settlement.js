@@ -9,6 +9,7 @@ function Settlement(inherited) {
 	this.profit = 0;
 	this.treasure = 0;
 	this.food = 0;
+	this.queue = {};
 
 	// This will be persistence in all instances (even inherited);
 	this.type = "settlement";
@@ -27,6 +28,16 @@ Settlement.prototype.click = function() {
 	};
 };
 
+Settlement.prototype.addQueue = function(type, func, queueTime) {
+	if (!(type in this.queue)) {
+		this.queue[type] = {run: func, time: queueTime};
+	} else {
+		ui.queueInCityFull(this.x, this.y, type)
+		// return false so that running functions could use
+		// alternative type id if possible
+		return false;
+	}
+};
 Settlement.prototype.calculatePop = function() {
 	this.population += Math.floor( this.food / 100 * (this.population - this.infected) );
 };

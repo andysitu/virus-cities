@@ -2,7 +2,6 @@ function Player() {
 	this.money = 20000;
 	this.count = 0;
 	this.cities = {};
-	this.queue = [];
 }
 
 // any changes to prototype will lead to change in
@@ -21,7 +20,6 @@ Player.prototype.change = function(moneyValue, count) {
 Player.prototype.dispInfo = function() {
 	pstatus.displayInfo({
 		"money": "$" + makeCommas(this.money),
-		"queue: ": this.queue.length + " commands"
 	});
 };
 
