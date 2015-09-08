@@ -10,7 +10,7 @@ function inheritLand(context, land){
 
 function Land(x,y) {
 	this.fertility = Math.floor(Math.random() * 1000); 
-	this.livestock = Math.floor(Math.random() * 500);
+	this.livestock = Math.floor(this.fertility * 0.3) + Math.floor(Math.random() * 30);
 	this.resistance = Math.floor(Math.random() * 5) + 1;
 	this.id = "land";
 	this.x = x;
