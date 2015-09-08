@@ -10,6 +10,7 @@ function Settlement(inherited) {
 	this.treasure = 0;
 	this.food = 0;
 	this.queue = {};
+	this.buildings = [];
 
 	// This will be persistence in all instances (even inherited);
 	this.type = "settlement";
@@ -58,5 +59,12 @@ Settlement.prototype.run = function() {
 	this.calculatePop();
 	this.runQueue();
 };Settlement.prototype.getType = function() {
+Settlement.prototype.increaseFood = function(value) {
+	this.food += value;
+}
+
+Settlement.prototype.getPopulation = function() {
+	return this.population;
+}
 	return this.type;
 }
