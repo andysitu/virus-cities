@@ -85,7 +85,7 @@ var controller = {
 	},
 	uiSelect() {
 		// gets info obj from selected & then passes on to ui for it to 
-		// display. Also, this is run in controller.run in the game loop
+		// display.
 		try {
 			var obj = this.selected.click();
 			ui.setSelected(obj);
@@ -131,6 +131,5 @@ var controller = {
 
 	run() {
 		// functions run in game loop.
-		this.uiSelect();
 	}
 };
