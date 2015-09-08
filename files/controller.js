@@ -123,7 +123,7 @@ var controller = {
 			this.selected = settle;
 
 			ui.setSelected(obj);
-			ui.settle();
+			ui.settleMsg();
 		} else {
 			ui.notLand();
 		}

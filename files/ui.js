@@ -48,9 +48,9 @@ var ui = {
 	noMoneySettle() {
 		this.displayMsg("You don't have enough money to settle again.");
 	},
-	settle() {
+	settleMsg() {
 		var sel = this.selected;
-		this.displayMsg("You settled at " + sel["x, y"]);
+		this.displayMsg("Press \"b\" for the building menu");
 	},
 	notLand() {
 		this.displayMsg("That's not land.");
