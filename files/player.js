@@ -2,6 +2,8 @@ function Player() {
 	this.money = 20000;
 	this.count = 0;
 	this.cities = {};
+
+	this.type = "player";
 }
 
 // any changes to prototype will lead to change in
