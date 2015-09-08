@@ -38,6 +38,17 @@ Settlement.prototype.addQueue = function(type, func, queueTime) {
 		return false;
 	}
 };
+
+Settlement.prototype.runQueue = function() {
+	for (var key in this.queue) {
+		if (this.queue[key].time <= 0) {
+			this.queue[key].time--;
+		} else {
+			this.queue[key].run();
+		}
+	}
+}
+
 Settlement.prototype.calculatePop = function() {
 	this.population += Math.floor( this.food / 100 * (this.population - this.infected) );
 };
@@ -45,4 +56,5 @@ Settlement.prototype.calculatePop = function() {
 Settlement.prototype.run = function() {
 	// Player instance calls on this for every settlement
 	this.calculatePop();
+	this.runQueue();
 };
