@@ -54,5 +54,9 @@ var ui = {
 	},
 	notLand() {
 		this.displayMsg("That's not land.");
+	},
+	queueInCityFull(x,y, type) {
+		this.displayMsg("The queue in settlement " + x + ", " + y +
+			" of type " + type + " is full.");
 	}
 };
