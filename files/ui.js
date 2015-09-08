@@ -49,7 +49,6 @@ var ui = {
 		this.displayMsg("You don't have enough money to settle again.");
 	},
 	settleMsg() {
-		var sel = this.selected;
 		this.displayMsg("Press \"b\" for the building menu");
 	},
 	notLand() {

@@ -69,15 +69,15 @@ Settlement.prototype.getPopulation = function() {
 }
 
 Settlement.prototype.buildMenu = function() {
-	this.build(Farm);
+	this.build("farm", Farm);
 	console.log("I want to build a building!");
 };
 
-Settlement.prototype.build = function(Building) {
-	var building = new Building();
-	console.log(building);
-}
+Settlement.prototype.build = function(name, Building) {
+	var name = new Building();
+	console.log(name);
+};
 
 Settlement.prototype.getType = function() {
 	return this.type;
-}
+};
